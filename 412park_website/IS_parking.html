@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Science Building Parking</title>
+    <link rel="stylesheet" href="./static/css/lecture_hall.css">
+</head>
+<body data-lot-name="information">
+    <h1>Information Science Building Parking</h1>
+    <h3>Click on a spot to mark it as occupied or available</h3>
+    <div id="availability-counter" style="text-align: center; font-size: 1.0625rem; color: #86868b; margin-bottom: 2rem; font-weight: 400;"></div>
+
+    <div id="parking_lot">
+        <div class="spot" data-number="1">
+            1
+        </div>
+        <div class="spot" data-number="2">
+            2
+        </div>
+        <div class="spot" data-number="3">
+            3
+        </div>
+        <div class="spot" data-number="4">
+            4
+        </div>
+        <div class="spot" data-number="5">
+            5
+        </div>
+        <div class="spot" data-number="6">
+            6
+        </div>
+        <div class="spot" data-number="7">
+            7
+        </div>
+        <div class="spot" data-number="8">
+            8
+        </div>
+        <div class="spot" data-number="9">
+            9
+        </div>
+        <div class="spot" data-number="10">
+            10
+        </div>
+    </div>
+
+    <script src="./static/js/parking.js"></script>
+    <script>
+        const lotName = document.body.dataset.lotName;
+        
+        function updateCounter() {
+            const stats = getLotAvailability(lotName);
+            const counter = document.getElementById('availability-counter');
+            if (counter) {
+                counter.textContent = `${stats.available} of ${stats.total} spots available`;
+                counter.style.color = stats.available === 0 ? '#ff3b30' : stats.available <= 3 ? '#ff9500' : '#86868b';
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            initParkingSpots(lotName, updateCounter);
+            updateCounter();
+        });
+    </script>
+
+    <a href="index.html" id="back">← Back to Main Page</a>
+</body>
+
+</html>

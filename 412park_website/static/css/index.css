@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background: #ffffff !important;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #ffffff;
+    min-height: 100vh;
+    padding: 0;
+    color: #1d1d1f;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+}
+
+#Map_title {
+    text-align: center;
+    padding: 5rem 2rem 4rem;
+    background: #ffffff;
+}
+
+#Map_title h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 1rem;
+    letter-spacing: -0.04em;
+}
+
+#Map_title p {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #666666;
+    margin-top: 0.5rem;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 2rem 5rem;
+    background: #ffffff;
+}
+
+.section-label {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #999999;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin: 4rem 0 2.5rem;
+    position: relative;
+}
+
+.section-label::before,
+.section-label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 35%;
+    height: 1px;
+    background: #e8e8e8;
+}
+
+.section-label::before {
+    left: 0;
+}
+
+.section-label::after {
+    right: 0;
+}
+
+#top_lecture_hall,
+#middle_lecture_hall,
+#bottom_lecture_hall {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+#top_lecture_hall > div,
+#middle_lecture_hall > div,
+#bottom_lecture_hall > div {
+    position: relative;
+}
+
+.parking-card {
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #f0f0f0;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+}
+
+.parking-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 16px 48px rgba(0, 0, 0, 0.04);
+    border-color: #e0e0e0;
+}
+
+.top_image,
+.middle_image,
+.bottom_image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #f8f8f8;
+}
+
+.parking-card:hover .top_image,
+.parking-card:hover .middle_image,
+.parking-card:hover .bottom_image {
+    transform: scale(1.03);
+}
+
+.card-content {
+    padding: 2rem 1.75rem;
+    background: #ffffff;
+}
+
+.lecture_hall_name {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+}
+
+.availability-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #f8f8f8;
+    color: #333333;
+    padding: 0.5rem 1.125rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-top: 0.25rem;
+    border: none;
+}
+
+.availability-badge.high {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.availability-badge.medium {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.availability-badge.low {
+    background: #ffebee;
+    color: #c62828;
+}
+
+#top_lecture_hall a,
+#middle_lecture_hall a,
+#bottom_lecture_hall a {
+    text-decoration: none;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    #Map_title {
+        padding: 3rem 1.5rem 2.5rem;
+    }
+    
+    #Map_title h1 {
+        font-size: 2.25rem;
+    }
+    
+    #Map_title p {
+        font-size: 1.125rem;
+    }
+    
+    .container {
+        padding: 1.5rem 1.5rem 3rem;
+    }
+    
+    #top_lecture_hall,
+    #middle_lecture_hall,
+    #bottom_lecture_hall {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .top_image,
+    .middle_image,
+    .bottom_image {
+        height: 220px;
+    }
+    
+    .card-content {
+        padding: 1.5rem 1.25rem;
+    }
+    
+    .lecture_hall_name {
+        font-size: 1.25rem;
+    }
+    
+    .section-label {
+        margin: 3rem 0 2rem;
+        font-size: 0.6875rem;
+    }
+    
+    .section-label::before,
+    .section-label::after {
+        width: 25%;
+    }
+}
+
+

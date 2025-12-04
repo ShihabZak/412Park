@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitt Campus Parking</title>
+    <link rel="stylesheet" href="./static/css/index.css">
+</head>
+<body>
+    <script src="./static/js/parking.js"></script>
+    <script>
+        // Map lot names to their display names
+        const lotMap = {
+            'Peterson_parking.html': 'petersen',
+            'Recreation_center.html': 'recreation',
+            'Alumni_parking.html': 'alumni',
+            'IS_parking.html': 'information',
+            'towers_parking.html': 'towers',
+            'Cathy_parking.html': 'cathedral',
+            'Lawrence_parking.html': 'lawrence',
+            'Frick_fine_arts_parking.html': 'frickfinearts'
+        };
+        
+        // Update availability badges on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.availability-badge').forEach(badge => {
+                const lotName = badge.getAttribute('data-lot');
+                if (lotName) {
+                    const stats = getLotAvailability(lotName);
+                    badge.textContent = `${stats.available} of ${stats.total} available`;
+                    
+                    // Add color class based on availability
+                    const percentage = (stats.available / stats.total) * 100;
+                    badge.classList.remove('high', 'medium', 'low');
+                    if (percentage >= 50) {
+                        badge.classList.add('high');
+                    } else if (percentage >= 20) {
+                        badge.classList.add('medium');
+                    } else {
+                        badge.classList.add('low');
+                    }
+                }
+            });
+        });
+    </script>
+    <div id="Map_title">
+        <h1>Pitt Campus Parking</h1>
+        <p>Find available parking spots across campus</p>
+    </div>
+
+    <div class="container">
+        <div class="section-label" id="fifth_ave">Fifth Avenue</div>
+        <div id="top_lecture_hall">
+            <div>
+                <a href="Peterson_parking.html" class="parking-card">
+                    <img class="top_image" src="./static/images/Petersen.jpg" alt="Petersen Event Center">
+                    <div class="card-content">
+                        <h3 class="lecture_hall_name">Petersen Event Center</h3>
+                        <div class="availability-badge" data-lot="petersen"></div>
+                    </div>
+                </a>
+            </div>
+
+            <div>
+                <a href="Recreation_center.html" class="parking-card">
+                    <img class="top_image" src="./static/images/pitt_gym.jpg" alt="Pitt Recreation Center">
+                    <div class="card-content">
+                        <h3 class="lecture_hall_name">Pitt Recreation Center</h3>
+                        <div class="availability-badge" data-lot="recreation"></div>
+                    </div>
+                </a>
+            </div>
+
+            <div>
+                <a href="Alumni_parking.html" class="parking-card">
+                    <img class="top_image" src="./static/images/Alumni_hall.jpg" alt="Alumni Hall">
+                    <div class="card-content">
+                        <h3 class="lecture_hall_name">Alumni Hall</h3>
+                        <div class="availability-badge" data-lot="alumni"></div>
+                    </div>
+                </a>
+            </div>
+        
+            <div>
+                <a href="IS_parking.html" class="parking-card">
+                    <img class="top_image" src="./static/images/IS_building.jpg" alt="Information Science Building">
+                    <div class="card-content">
+                        <h3 class="lecture_hall_name">IS Building</h3>
+                        <div class="availability-badge" data-lot="information"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="section-label" id="forbes_ave">Forbes Avenue</div>
+        <div id="middle_lecture_hall">
+            <div>
+                <a href="towers_parking.html" class="parking-card">
+                    <img class="middle_image" src="./static/images/towers.jpg" alt="Litchfield Towers">
+                    <div class="card-content">
+                        <h3 class="lecture_hall_name">Litchfield Towers</h3>
+                        <div class="availability-badge" data-lot="towers"></div>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="Cathy_parking.html" class="parking-card">
+                    <img class="middle_image" src="./static/images/Cathedral.jpg" alt="Cathedral of Learning">
+                    <div class="card-content">
+                        <h3 class="lecture_hall_name">Cathedral of Learning</h3>
+                        <div class="availability-badge" data-lot="cathedral"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="section-label">South Campus</div>
+        <div id="bottom_lecture_hall">
+            <div>
+                <a href="Lawrence_parking.html" class="parking-card">
+                    <img class="bottom_image" src="./static/images/Lawrence.jpg" alt="Lawrence Hall">
+                    <div class="card-content">
+                        <h3 class="lecture_hall_name">Lawrence Hall</h3>
+                        <div class="availability-badge" data-lot="lawrence"></div>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="Frick_fine_arts_parking.html" class="parking-card">
+                    <img class="bottom_image" src="./static/images/Frick_fine_arts.jpg" alt="Frick Fine Arts">
+                    <div class="card-content">
+                        <h3 class="lecture_hall_name">Frick Fine Arts</h3>
+                        <div class="availability-badge" data-lot="frickfinearts"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

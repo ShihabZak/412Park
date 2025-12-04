@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #ffffff;
+    min-height: 100vh;
+    padding: 3rem 1.5rem;
+    color: #1d1d1f;
+    line-height: 1.47059;
+    letter-spacing: -0.022em;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.03em;
+    padding-top: 1rem;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #86868b;
+    margin-bottom: 1rem;
+    letter-spacing: -0.011em;
+}
+
+#parking_lot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem 2rem;
+    background: #f5f5f7;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.spot {
+    width: 85px;
+    height: 85px;
+    background: #34c759;
+    border: none;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.spot:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(52, 199, 89, 0.3);
+    background: #30d158;
+}
+
+.spot:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.spot.occupied {
+    background: #ff3b30;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.spot.occupied:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(255, 59, 48, 0.3);
+    background: #ff453a;
+}
+
+#back {
+    display: block;
+    max-width: 200px;
+    margin: 4rem auto;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background: #0071e3;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 980px;
+    font-weight: 400;
+    font-size: 0.9375rem;
+    transition: all 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
+    letter-spacing: -0.011em;
+    border: none;
+}
+
+#back:hover {
+    background: #0077ed;
+    transform: translateY(-1px);
+}
+
+#back:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 2rem 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h3 {
+        font-size: 1.0625rem;
+        margin-bottom: 2rem;
+    }
+    
+    .spot {
+        width: 70px;
+        height: 70px;
+        font-size: 1.125rem;
+    }
+    
+    #parking_lot {
+        padding: 2rem 1.5rem;
+        gap: 0.75rem;
+        border-radius: 16px;
+    }
+    
+    #back {
+        margin: 3rem auto;
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+    }
+}
