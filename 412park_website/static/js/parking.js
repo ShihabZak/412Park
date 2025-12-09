@@ -106,4 +106,3 @@ function initParkingSpots(lotName, onUpdate) {
         });
     });
 }
-
